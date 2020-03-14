@@ -5,13 +5,9 @@ const bcrypt = require('bcrypt-nodejs');
 const UsuarioSchema = new mongoose.Schema({
   username: {
     type: String
-    // unique: true,
-    // required: true
   },
   lastname: {
     type: String
-    // unique: true,
-    // required: true
   },
   password: {
     type: String,
@@ -19,6 +15,7 @@ const UsuarioSchema = new mongoose.Schema({
   },
   email: {
     type: String,
+    unique: true,
     required: true
   }
 });
@@ -39,7 +36,7 @@ UsuarioSchema.pre('save', function(next) {
 
 //Verifica se a senha é válida
 UsuarioSchema.methods.verificarSenha = function(password, next) {
-  bcrypt.compare(password, this.password, function(err, isMatch) {
+  bcrypt.compare(password, this.password, (err, isMatch) => {
     if (err) return next(err);
     next(isMatch);
   });

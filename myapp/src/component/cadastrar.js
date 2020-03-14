@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 
-
+import './login.css'
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
 import axios from 'axios';
+import Logo from '../temp/logo';
+import Footer from '../temp/footer';
 
 import { Link } from 'react-router-dom';
 import { Growl } from 'primereact/growl';
 
 
-const urlCadastro = 'http://localhost:3007/api/v1/usuarios';
+const urlCadastro = 'http://localhost:3007/api/v1/usuarios/';
 
 export default class Cadastrar extends Component {
   constructor(props) {
@@ -68,21 +70,24 @@ export default class Cadastrar extends Component {
           <div className="card-body p-0">
             <Growl ref={(el) => this.growl = el} />
             <div className="row">
-              <div className="col-lg-5 d-none d-lg-block bg-register-image"></div>
+              <div className="col-lg-4 d-none d-lg-block ml-2 container-logo">
+                <Logo className="scarpim-logo ml-4" />
+              </div>
+              {/* <div className="col-lg-5 d-none d-lg-block bg-register-image"></div> */}
               <div className="col-lg-7">
                 <div className="p-5">
                   <div className="text-center">
-                    <h1 className="h4 text-gray-900 mb-4">Create an Account!</h1>
+                    <h1 className="h4 text-gray-900 mb-4">Crie sua conta grátis!</h1>
                   </div>
                   <form className="user">
                     <div className="form-group row">
                       <div className="col-sm-6 mb-3 mb-sm-0">
                         <input type="text" className="form-control form-control-user" id="username" placeholder="First Name"
-                          value={this.state.username} onChange={this.onChange} required />
+                          value={this.state.username} onChange={this.onChange} pattern="[A-Za-z]{3}" title="Insira um nome válido" required />
                       </div>
                       <div className="col-sm-6">
                         <input type="text" className="form-control form-control-user" id="lastname" placeholder="Last Name"
-                          value={this.state.lastname} onChange={this.onChange} required />
+                          value={this.state.lastname} onChange={this.onChange} pattern="[A-Za-z]{3}" title="Insira um nome válido" required />
                       </div>
                     </div>
                     <div className="form-group">
@@ -104,9 +109,10 @@ export default class Cadastrar extends Component {
                   </form>
                   <hr />
                   <div className="text-center">
-                    <Link className="small" to={'/login'} >Already have an account? Login!</Link>
+                    <Link className="small" to={'/login'} >Já possuí uma conta? Faça o seu Login!</Link>
                   </div>
                 </div>
+                <Footer />
               </div>
             </div>
           </div>
