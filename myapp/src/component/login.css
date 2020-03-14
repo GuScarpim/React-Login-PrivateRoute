@@ -1,0 +1,15 @@
+.scarpim-logo {
+    position: absolute;
+    width: 280px;
+    height: 100px;
+    margin: auto;
+    top: 35%;
+}
+
+.container-logo {
+    background-color: #74a4bb;
+}
+
+body {
+    background-color: rgb(12, 3, 36);
+}
