@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// const jwt = require('jwt-simple');
 const cors = require('cors');
 
 const mongoURI = 'Sua url do mongo';
