@@ -1,3 +1,4 @@
+
 # Projeto para criação de usuários e bloqueio de rotas com React.js, Node.js e mongoDB.
  
 Desenvolvi uma API para demonstrar de uma maneira simples sobre como o JWT é utilizado para criação de tokens, e como utilizar esses tokens para permitir acesso a rotas privadas com React.js.
