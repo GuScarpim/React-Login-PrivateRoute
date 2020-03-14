@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // const jwt = require('jwt-simple');
 const cors = require('cors');
 
-const mongoURI = 'mongodb+srv://scarpim:12345@cluster0-yhxii.mongodb.net/test?retryWrites=true&w=majority';
+const mongoURI = 'Coloque o caminho da sua url do mongo atlas';
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,11 +17,8 @@ const router = express.Router();
 app.use('/api/v1', router);
 /*Rotas*/
 const rotas = require('../route/rotas')
-router.route('/usuarios')
-  .get(require('../JWT'), rotas.getUsuarios)
-  .post(rotas.postUsuarios);
-router.route('/login')
-  .post(rotas.login);
+router.route('/usuarios').get(require('../JWT'), rotas.getUsuarios).post(rotas.postUsuarios);
+router.route('/login').post(rotas.login);
 
 mongoose.connect(mongoURI, { useUnifiedTopology: true, useNewUrlParser: true });
 app.listen(port);

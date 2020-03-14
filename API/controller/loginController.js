@@ -16,7 +16,7 @@ module.exports = (req, res) => {
       return res.send(401)
     }
 // Se a senha estiver correta
-    user.verificaSenha(password, (isMatch) => {
+    user.verificarSenha(password, (isMatch) => {
       if (!isMatch) {
         return res.send(401);
       }

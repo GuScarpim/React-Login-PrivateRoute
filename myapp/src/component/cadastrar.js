@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 
+
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
 import axios from 'axios';
+
 import { Link } from 'react-router-dom';
+import { Growl } from 'primereact/growl';
+
 
 const urlCadastro = 'http://localhost:3007/api/v1/usuarios';
 
@@ -30,15 +38,27 @@ export default class Cadastrar extends Component {
       email: email.toLowerCase(),
       password: password
     }
-    if (password == password2) {
+    if (password == password2 && password != '') {
       return axios.post(urlCadastro, obj)
         .then((response) => {
+          this.showSuccess();
           console.log(response)
+          this.setState({ email: '', password: '', username: '', lastname: '', password2: '' })
         })
         .catch((error) => {
           console.log(error);
         });
-    } 
+
+    } else {
+      this.showError();
+    }
+  }
+
+  showSuccess = () => {
+    this.growl.show({ severity: 'success', summary: 'Sucesso!!', detail: 'Dados cadastrados com sucesso!!' });
+  }
+  showError = () => {
+    this.growl.show({ severity: 'error', summary: 'Erro!!', detail: 'Preencha os dados corretamente!' });
   }
 
   render() {
@@ -46,6 +66,7 @@ export default class Cadastrar extends Component {
       <div className="container">
         <div className="card o-hidden border-0 shadow-lg my-5">
           <div className="card-body p-0">
+            <Growl ref={(el) => this.growl = el} />
             <div className="row">
               <div className="col-lg-5 d-none d-lg-block bg-register-image"></div>
               <div className="col-lg-7">
