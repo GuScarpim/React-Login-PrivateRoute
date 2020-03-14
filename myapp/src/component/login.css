@@ -13,3 +13,19 @@
 body {
     background-color: rgb(12, 3, 36);
 }
+
+.logo-canto {
+    position: relative;
+    left: 0px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+}
+
+.card-white {
+    width: 100%;
+}
+
+.token {
+    font-size: 12px;
+}
+

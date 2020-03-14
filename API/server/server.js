@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // const jwt = require('jwt-simple');
 const cors = require('cors');
 
-const mongoURI = 'Coloque o caminho da sua url do mongo atlas';
+const mongoURI = 'Sua url do mongo';
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
