@@ -18,7 +18,7 @@
     "express-generator": "^4.16.1",
     "jade": "^1.11.0",
     "jsonwebtoken": "^8.5.1",
-    "jwt-simple": "^0.2.0",
+    "jwt-simple": "^0.5.3",
     "moment": "^2.9.0",
     "mongoose": "^5.9.2",
     "morgan": "^1.9.1",
