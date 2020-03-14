@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   });
   data.save((err) => {
     if (err)
-      res.send(err);
+      res.send('errrrrro' + err);
     res.json({ message: 'Usuário cadastrado: ', data: data });
   });
 };
